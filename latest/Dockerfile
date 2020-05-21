@@ -55,7 +55,23 @@ RUN docker-php-ext-install \
     zip \
     bcmath \
     exif
-
+                                                                                                  
+RUN apk --no-cache add shadow \                                                                   
+    gcc \                                                                                         
+    musl-dev \                                                                                    
+    autoconf \                                                                                    
+    automake \                                                                                    
+    make \                                                                                        
+    libtool \                                                                                     
+    nasm \                                                                                        
+    tiff \                                                                                        
+    jpeg \                                                                                        
+    zlib \                                                                                        
+    zlib-dev \                                                                                    
+    file \                                                                                        
+    pkgconf \                                                                                     
+    && yarn install
+    
 # Install composer
 ENV COMPOSER_HOME /composer
 ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
